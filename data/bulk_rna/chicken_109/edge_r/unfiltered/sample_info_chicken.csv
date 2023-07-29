@@ -1,0 +1,16 @@
+sample_name,type
+chicken_a_control_1,CTRL
+chicken_a_lps_4h,LPS_4
+chicken_a_lps_8h,LPS_8
+chicken_a_lps_24h,LPS_24
+chicken_a_control_2,CTRL
+chicken_a_pic_4h,PIC_4
+chicken_a_pic_8h,PIC_8
+chicken_a_pic_24h,PIC_24
+chicken_d_control_1,CTRL
+chicken_d_lps_4h,LPS_4
+chicken_d_lps_8h,LPS_8
+chicken_d_lps_24h,LPS_24
+chicken_d_control_2,CTRL
+chicken_d_pic_4h,PIC_4
+chicken_d_pic_8h,PIC_8

@@ -1,0 +1,15 @@
+sample_name,type
+turtle_5_control_2,CTRL
+turtle_5_control_1,CTRL
+turtle_5_pic_8h,PIC_8
+turtle_5_lps_8h,LPS_8
+turtle_5_pic_4h,PIC_4
+turtle_5_lps_4h,LPS_4
+turtle_3_control_2,CTRL
+turtle_3_control_1,CTRL
+turtle_3_pic_8h,PIC_8
+turtle_3_lps_8h,LPS_8
+turtle_3_pic_4h,PIC_4
+turtle_3_lps_4h,LPS_4
+turtle_3_pic_24h,PIC_24
+turtle_3_lps_24h,LPS_24

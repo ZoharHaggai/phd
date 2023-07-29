@@ -1,0 +1,20 @@
+.vscode/
+
+cluster_jobs/
+aux_info/
+libParams/
+cmd_info.json
+lib_format_counts.json
+
+.RData
+.Rhistory
+__pycache__
+
+*.gz
+*.log
+logs/
+log/
+
+# large files
+lizard-genes2.csv
+lizard-gainloss-*.csv
