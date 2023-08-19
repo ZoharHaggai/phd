@@ -13,7 +13,7 @@ def generate_unfiltered_summary(animals: list[str], sample_types: list[str], hou
     result_df.index.name = 'animal'
 
     for animal, sample_type, hour in product(animals, sample_types, hours):
-        filepath = basepath / (f'data/bulk_rna/{animal}/edge_r/unfiltered/output_{sample_type}/'
+        filepath = basepath / (f'data/bulk_rna/animals/{animal}/edge_r/unfiltered/output_{sample_type}/'
                                f'{sample_type}_{hour}.csv')
         if filepath.exists():
             df = pd.read_csv(filepath)
@@ -30,7 +30,7 @@ def generate_filtered_summary(animals: list[str], sample_types: list[str], hours
     result_df.index.name = 'animal'
 
     for animal, sample_type, hour in product(animals, sample_types, hours):
-        filepath = basepath / (f'data/bulk_rna/{animal}/edge_r/filtered/output_{sample_type}/'
+        filepath = basepath / (f'data/bulk_rna/animals/{animal}/edge_r/filtered/output_{sample_type}/'
                                f'{sample_type}_{hour}.csv')
         if filepath.exists():
             df = pd.read_csv(filepath)
@@ -47,7 +47,7 @@ def generate_filtered_significant_de_summary(animals: list[str], sample_types: l
     result_df.index.name = 'animal'
 
     for animal, sample_type, hour, logfc_type in product(animals, sample_types, hours, logfc_types):
-        filepath = basepath / (f'data/bulk_rna/{animal}/edge_r/filtered/significant_logfc/'
+        filepath = basepath / (f'data/bulk_rna/animals/{animal}/edge_r/filtered/significant_logfc/'
                                f'{sample_type}_{hour}_logfc_{logfc_type}.csv')
         if filepath.exists():
             df = pd.read_csv(filepath)

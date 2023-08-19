@@ -5,7 +5,7 @@ import pandas as pd
 
 
 def generate_logfc_files(animal: str, sample_type: str, hour: int):
-    base_filepath = Path(f'data/bulk_rna/{animal}/edge_r/filtered')
+    base_filepath = Path(f'data/bulk_rna/animals/{animal}/edge_r/filtered')
     input_filepath = base_filepath / f'output_{sample_type}/{sample_type}_{hour}.csv'
     output_folderpath = base_filepath / 'significant_logfc'
 
