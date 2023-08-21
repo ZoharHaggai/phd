@@ -1,4 +1,4 @@
-Name,Chicken_D_control_2,Chicken_D_8h_PIC,Chicken_D_8h_LPS,Chicken_D_4h_PIC,Chicken_D_4h_LPS,Chicken_D_24h_LPS,Chicken_A_8h_LPS,Chicken_A_4h_PIC,Chicken_A_24h_PIC,Chicken_A_24h_LPS,Chicken_A2_ctrl,Chicken-D-control-1,Chicken-A1-ctrl,Chicken-A-8h-PIC,Chicken-A-4h-LPS
+Name,chicken_d_control_2,chicken_d_pic_8h,chicken_d_lps_8h,chicken_d_pic_4h,chicken_d_lps_4h,chicken_d_lps_24h,chicken_a_lps_8h,chicken_a_pic_4h,chicken_a_pic_24h,chicken_a_lps_24h,chicken_a_control_2,chicken_d_control_1,chicken_a_control_1,chicken_a_pic_8h,chicken_a_lps_4h
 ENSGALG00010014241,101,59,45,26,82,108,85,88,15,117,216,133,50,46,150
 ENSGALG00010029524,1519,2991,1347,1992,1400,1169,2250,1741,3726,1590,1723,1919,2541,2309,2591
 ENSGALG00010024689,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0
