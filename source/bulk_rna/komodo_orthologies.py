@@ -32,7 +32,7 @@ def decode_stable_id(value: str) -> set[str]:
 
 
 def main():
-    animals = ['komodo', 'chicken_109', 'crocodile', 'turtle_painted']
+    animals = ['komodo', 'chicken_109', 'chicken_grcg6a', 'crocodile', 'turtle_painted']
     orthology_df = pd.read_csv('data/bulk_rna/orthology/komodo_orthologies.csv')
     orthology_df = orthology_df.set_index('komodo_stable_id', drop=False)
     orthology_df.index.name = 'ref_komodo_stable_id'

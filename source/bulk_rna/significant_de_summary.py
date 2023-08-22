@@ -58,7 +58,7 @@ def generate_filtered_significant_de_summary(animals: list[str], sample_types: l
 
 
 def main():
-    animals = ['chicken_109', 'crocodile', 'turtle_painted', 'komodo']
+    animals = ['chicken_109', 'chicken_grcg6a', 'crocodile', 'turtle_painted', 'komodo']
     sample_types = ['pic', 'lps']
     hours = [4, 8, 24]
     logfc_types = ['up', 'down']

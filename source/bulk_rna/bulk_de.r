@@ -3,10 +3,10 @@ library(ggplot2)
 library(limma)
 
 # Path to location of the counts matrix (txt)
-COUNTS_FILE = "data/bulk_rna/animals/komodo/edge_r/filtered/count_lf_4h.txt"
+COUNTS_FILE = "data/bulk_rna/animals/chicken_grcg6a/edge_r/filtered/count_lps_4h.txt"
 
 # Path to sample info file (csv)
-SAMPLE_INFO_FILE = "data/bulk_rna/animals/komodo/edge_r/filtered/info_lf_4h.csv"
+SAMPLE_INFO_FILE = "data/bulk_rna/animals/chicken_grcg6a/edge_r/filtered/info_lps_4h.csv"
 
 # Parameters to function:
 # samples_info = table of samples info
@@ -46,7 +46,7 @@ samples_data = read.csv(SAMPLE_INFO_FILE, header = TRUE)
 #read count matrix
 count_data = read.table(COUNTS_FILE, header = TRUE)
 
-p = c("CTRL", "lf_4") # In this case positive FC will mean - up in AD
+p = c("CTRL", "lps_4") # In this case positive FC will mean - up in AD
 
 # set results file path
 out = sprintf("data/bulk_rna/animals/komodo/edge_r/filtered/output_lf/lf_4_filtered.csv")
