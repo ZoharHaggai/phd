@@ -1,4 +1,4 @@
-# Zohar's PhD projects
+# Zohar's PhD Projects
 
 ## Bulk RNA Sequencing Pipeline
 
@@ -16,4 +16,4 @@ After sending the samples to sequencing and getting the results:
 
 ## Gene Gain and Loss Pipeline
 
-## Other pipelines
+## Other Pipelines
