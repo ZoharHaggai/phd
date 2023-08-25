@@ -34,7 +34,7 @@ def main():
     animals = ['komodo', 'chicken_grcg6a', 'crocodile', 'turtle_painted']
     # animals = ['komodo', 'chicken_109', 'chicken_grcg6a', 'crocodile', 'turtle_painted']
 
-    orthology_df = pd.read_csv('data/bulk_rna/orthology/komodo_orthologies.csv')
+    orthology_df = pd.read_csv('data/bulk_rna/orthology/one2many/komodo_orthologies.csv')
     orthology_df = orthology_df.set_index('komodo_stable_id', drop=False)
     orthology_df.index.name = 'ref_komodo_stable_id'
 
@@ -51,7 +51,7 @@ def main():
         filtered_orthology_df[f'{animal}_stable_id'] = orthology_df[f'{animal}_stable_id'][mask]
 
     filtered_orthology_df = filtered_orthology_df.dropna(how='all')
-    filtered_orthology_df.to_csv('data/bulk_rna/orthology/komodo_orthologies_filtered__zohar.csv')
+    filtered_orthology_df.to_csv('data/bulk_rna/orthology/one2many/komodo_orthologies_filtered__zohar.csv')
 
 
 if __name__ == '__main__':

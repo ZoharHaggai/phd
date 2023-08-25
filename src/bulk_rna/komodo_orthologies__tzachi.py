@@ -39,22 +39,19 @@ def main():
     animals = ['komodo', 'chicken_grcg6a', 'crocodile', 'turtle_painted']
     # animals = ['komodo', 'chicken_109', 'chicken_grcg6a', 'crocodile', 'turtle_painted']
 
-    orthology_df = pd.read_csv('data/bulk_rna/orthology/komodo_orthologies.csv')
+    orthology_df = pd.read_csv('data/bulk_rna/orthology/one2many/komodo_orthologies.csv')
     orthology_df = orthology_df.set_index('komodo_stable_id', drop=False)
     orthology_df.index.name = 'ref_komodo_stable_id'
-    # 1
     mask = np.zeros(len(orthology_df), dtype=bool)
 
     for animal in animals:
         animal_genes = get_animal_logfc_up_genes(animal)
-        # 2
         mask |= orthology_df[f'{animal}_stable_id'].apply(
             lambda x: bool(animal_genes.intersection(decode_stable_id(x)))
         )
 
-    # 3    
     filtered_orthology_df = orthology_df[mask]
-    filtered_orthology_df.to_csv('data/bulk_rna/orthology/komodo_orthologies_filtered__tzachi.csv')
+    filtered_orthology_df.to_csv('data/bulk_rna/orthology/one2many/komodo_orthologies_filtered__tzachi.csv')
 
 
 if __name__ == '__main__':
