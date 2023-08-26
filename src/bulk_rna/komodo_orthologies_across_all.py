@@ -1,12 +1,21 @@
-from itertools import product
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 
+BULK_RNA_DATA_DIR = Path('data/bulk_rna')
 
-def generate_animal_orthology_by_sample_type_df(orthology_df: pd.DataFrame, animal: str, sample_type: str):
-    base_filepath = Path(f'data/bulk_rna/animals/{animal}/edge_r/filtered/significant_logfc')
+ONE2ONE_ORTHOLOGY_PATH = BULK_RNA_DATA_DIR / 'orthology/one2one'
+ONE2ONE_ACROSS_ALL_PATH = ONE2ONE_ORTHOLOGY_PATH / 'one2one_across_all.csv'
+
+ANIMALS_DATA_PATH = BULK_RNA_DATA_DIR / 'animals'
+
+
+def get_animal_significant_logfc_path(animal):
+    return ANIMALS_DATA_PATH / f'{animal}/edge_r/filtered/significant_logfc'
+
+
+def generate_animal_orthology_df_by_sample_type(orthology_df: pd.DataFrame, animal: str, sample_type: str):
+    base_filepath = get_animal_significant_logfc_path(animal)
     hours = [4, 8, 24]
 
     res = orthology_df[[f'{animal}_stable_id',
@@ -23,13 +32,13 @@ def generate_animal_orthology_by_sample_type_df(orthology_df: pd.DataFrame, anim
                                                 'QValue': f'{animal}_{sample_type}_{hour}_QValue'})
             res = res.merge(logfc_df, how='outer', left_on=f'{animal}_stable_id', right_index=True)
 
-    logfc_columns = [col for col in res if col.endswith('_logFC')]
-    indices_to_drop = res[res[logfc_columns].isna().all(axis=1)].index
-    return res.drop(indices_to_drop)
+    logfc_columns = [col for col in res if col.endswith(('_logFC', '_QValue'))]
+    res = res.dropna(subset=logfc_columns, how='all')
+    return res
 
 
 def main():
-    orthology_df = pd.read_csv('data/bulk_rna/orthology/one2one/one2one_across_all.csv')
+    orthology_df = pd.read_csv(ONE2ONE_ACROSS_ALL_PATH)
     orthology_df = orthology_df.set_index('komodo_stable_id', drop=False)
     orthology_df.index.name = 'ref_komodo_stable_id'
 
@@ -42,21 +51,20 @@ def main():
         animals_orthology_df = pd.DataFrame(index=orthology_df.index)
 
         for animal in animals:
-            animal_df = generate_animal_orthology_by_sample_type_df(orthology_df, animal, sample_type)
-
-            if len(animal_df) == 0:
+            animal_df = generate_animal_orthology_df_by_sample_type(orthology_df, animal, sample_type)
+            if animal_df.empty:
                 continue
 
-            diff = animal_df.columns.difference(animals_orthology_df.columns, sort=False)
-            animals_orthology_df = animals_orthology_df.merge(
-                animal_df[diff],
-                how='outer',
-                left_index=True,
-                right_index=True
-            )
+            animals_orthology_df = animals_orthology_df.merge(animal_df,
+                                                              how='outer',
+                                                              left_index=True,
+                                                              right_index=True)
 
         animals_orthology_df_filtered = animals_orthology_df.dropna(how='all')
-        animals_orthology_df_filtered.to_csv(f'data/bulk_rna/orthology/one2one/komodo_orthologies_{sample_type}_logfc_qvalue.csv')
+        animals_orthology_df_filtered.to_csv(
+            ONE2ONE_ORTHOLOGY_PATH /
+            f'komodo_orthologies_{sample_type}_logfc_qvalue.csv'
+        )
 
 
 if __name__ == '__main__':
