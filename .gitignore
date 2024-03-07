@@ -9,6 +9,7 @@ lib_format_counts.json
 .RData
 .Rhistory
 __pycache__
+cache/
 
 *.gz
 *.log
