@@ -22,3 +22,5 @@ lizard-gainloss-*.csv
 *.mtx
 *.gz
 *.h5ad
+*.rds
+data/single_cell/animals/chicken/ca1/new_genome/matrix_new.csv
