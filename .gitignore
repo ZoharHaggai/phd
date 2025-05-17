@@ -5,6 +5,7 @@ aux_info/
 libParams/
 cmd_info.json
 lib_format_counts.json
+data/viral_condensates/hsv1/
 
 .RData
 .Rhistory
@@ -23,4 +24,10 @@ lizard-gainloss-*.csv
 *.gz
 *.h5ad
 *.rds
+*.avi
+*.mp4
+*.lif
+*.lifext
+*.tif
+*.tiff
 data/single_cell/animals/chicken/ca1/new_genome/matrix_new.csv
